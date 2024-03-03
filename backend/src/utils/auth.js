@@ -4,8 +4,8 @@ const User = require("../models/user.model.js")
 const createAvatar = require("../utils/createAvtar.js")
 
 passport.use(new GoogleStrategy({
-    clientID: '467438587816-26hga8f56qui4up7d3p5m7brfdfs9pfu.apps.googleusercontent.com',
-    clientSecret: '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',
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRETE,
     callbackURL: 'http://localhost:8000/api/v1/user//google/callback', // Adjust this based on your setup
 }, (accessToken, refreshToken, profile, done) => {
     // You can save the user profile data to the database or use it for authentication
